@@ -1,0 +1,48 @@
+<div class="container">
+  <div class="hero-section card">
+    <!-- Step 11: String Interpolation -->
+    <h1>Welcome to {{ portalName }}</h1>
+    <p class="description">
+      Manage your courses, view academic progress, track grades, and submit course enrollments seamlessly.
+    </p>
+
+    <!-- Step 12 & 13: Property Binding and Event Binding -->
+    <div class="action-bar">
+      <button class="btn btn-primary" [disabled]="!isPortalActive" (click)="onEnrollClick()">
+        Enroll Now
+      </button>
+      <span *ngIf="message" class="message-badge">{{ message }}</span>
+    </div>
+
+    <!-- Step 14: Two-Way Binding with ngModel -->
+    <div class="search-box">
+      <label for="search-input">Live Quick Search:</label>
+      <input id="search-input" type="text" [(ngModel)]="searchTerm" placeholder="Search portal topics...">
+      <p *ngIf="searchTerm" class="search-preview">Searching for: <strong>{{ searchTerm }}</strong></p>
+    </div>
+  </div>
+
+  <!-- Step 8 & Step 61: Live Stats Row -->
+  <div class="stats-row">
+    <div class="stat-card card">
+      <div class="stat-icon">📚</div>
+      <div class="stat-value">{{ availableCoursesCount }}</div>
+      <div class="stat-label">Courses Available</div>
+    </div>
+    <div class="stat-card card">
+      <div class="stat-icon">✅</div>
+      <div class="stat-value">{{ enrolledCount }}</div>
+      <div class="stat-label">Enrolled</div>
+    </div>
+    <div class="stat-card card">
+      <div class="stat-icon">⭐</div>
+      <div class="stat-value">{{ gpa }}</div>
+      <div class="stat-label">GPA</div>
+    </div>
+  </div>
+
+  <!-- Hands-On 6 Step 62: Course Summary Widget -->
+  <div class="widget-section">
+    <app-course-summary-widget></app-course-summary-widget>
+  </div>
+</div>

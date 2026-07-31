@@ -1,0 +1,31 @@
+.notification-card {
+  background: rgba(15, 23, 42, 0.4);
+  border: 1px dashed rgba(245, 158, 11, 0.4);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.75rem;
+}
+
+.header h4 {
+  color: #fbbf24;
+  font-size: 0.95rem;
+}
+
+.notification-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.notification-list li {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  background: rgba(255, 255, 255, 0.05);
+  padding: 0.35rem 0.75rem;
+  border-radius: 0.25rem;
+}

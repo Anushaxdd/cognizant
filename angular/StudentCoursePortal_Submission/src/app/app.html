@@ -1,0 +1,13 @@
+<!-- Hands-On 8 Step 91: Global Loading Spinner Overlay -->
+<div *ngIf="loadingService.isLoading$ | async" class="global-loading-overlay">
+  <div class="loading-spinner"></div>
+  <p>Processing API Request...</p>
+</div>
+
+<!-- Hands-On 1 Step 9: App Header Nav -->
+<app-header></app-header>
+
+<!-- Main Router Outlet Shell -->
+<main class="main-content">
+  <router-outlet></router-outlet>
+</main>

@@ -1,0 +1,40 @@
+<!-- Step 29, 30, 32, 34, 37: [ngClass], [ngStyle], appHighlight directive -->
+<div class="course-card card" [ngClass]="cardClasses" [ngStyle]="borderStyle" appHighlight="rgba(79, 70, 229, 0.25)">
+  <div class="card-header">
+    <span class="course-code">{{ course.code }}</span>
+
+    <!-- Step 27: *ngSwitch Structural Directive for Grade Badges -->
+    <div [ngSwitch]="course.gradeStatus">
+      <span *ngSwitchCase="'passed'" class="badge badge-passed">Passed</span>
+      <span *ngSwitchCase="'failed'" class="badge badge-failed">Failed</span>
+      <span *ngSwitchDefault class="badge badge-pending">Pending</span>
+    </div>
+  </div>
+
+  <h3 class="course-title">{{ course.name }}</h3>
+
+  <div class="card-meta">
+    <!-- Step 36: Custom CreditLabelPipe -->
+    <span class="credits-tag">⚡ {{ course.credits | creditLabel }}</span>
+    <span class="course-id">ID: #{{ course.id }}</span>
+  </div>
+
+  <!-- Step 31: Expandable Details Section -->
+  <div *ngIf="isExpanded" class="expanded-details">
+    <p>This comprehensive module covers advanced curriculum standards, interactive laboratory sessions, and continuous evaluation for {{ course.name }}.</p>
+  </div>
+
+  <div class="card-actions">
+    <button class="btn btn-secondary btn-sm" (click)="toggleDetails()">
+      {{ isExpanded ? 'Hide Details' : 'Show Details' }}
+    </button>
+
+    <!-- Step 65 & Step 100: Enroll/Unenroll button toggled by service and NgRx store -->
+    <button
+      class="btn btn-sm"
+      [ngClass]="enrollmentService.isEnrolled(course.id) ? 'btn-danger' : 'btn-primary'"
+      (click)="onEnrollClick()">
+      {{ enrollmentService.isEnrolled(course.id) ? 'Unenroll' : 'Enroll' }}
+    </button>
+  </div>
+</div>

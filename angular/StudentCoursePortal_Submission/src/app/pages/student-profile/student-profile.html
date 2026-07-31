@@ -1,0 +1,35 @@
+<div class="container">
+  <div class="profile-header card">
+    <div class="avatar">👨‍🎓</div>
+    <div class="profile-info">
+      <h2>{{ studentName }}</h2>
+      <p class="id-tag">ID: {{ studentId }} | {{ email }}</p>
+      <div class="badge-row">
+        <span class="badge badge-passed">Active Student</span>
+        <span class="badge badge-pending">GPA: {{ gpa }}</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Hands-On 6 Step 66: Display Enrolled Courses -->
+  <div class="enrolled-section card">
+    <h3>Enrolled Courses List</h3>
+    <div *ngIf="enrolledCourses.length > 0; else noEnrolled" class="enrolled-list">
+      <div *ngFor="let course of enrolledCourses" class="enrolled-item">
+        <div>
+          <h4>{{ course.name }} ({{ course.code }})</h4>
+          <span class="credits">{{ course.credits }} Credits</span>
+        </div>
+        <span class="badge" [ngClass]="'badge-' + course.gradeStatus">{{ course.gradeStatus }}</span>
+      </div>
+    </div>
+    <ng-template #noEnrolled>
+      <p class="empty-msg">You have not enrolled in any courses yet.</p>
+    </ng-template>
+  </div>
+
+  <!-- Hands-On 6 Step 67: NotificationComponent with Component-Level Provider -->
+  <div class="notification-section">
+    <app-notification></app-notification>
+  </div>
+</div>

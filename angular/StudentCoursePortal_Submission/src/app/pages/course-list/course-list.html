@@ -1,0 +1,51 @@
+<div class="container">
+  <div class="page-header card">
+    <h2>Available Course Catalog</h2>
+    <p>Browse through accredited undergraduate and postgraduate courses.</p>
+
+    <!-- Query Param Search Input (Step 71) -->
+    <div class="filter-bar">
+      <input
+        type="text"
+        [(ngModel)]="searchTerm"
+        (ngModelChange)="onSearchChange()"
+        placeholder="Filter courses by name or code..."
+        class="search-input">
+    </div>
+  </div>
+
+  <!-- Hands-On 2 Step 24: Display Selected Course ID -->
+  <div *ngIf="selectedCourseId" class="selected-banner card">
+    <p>Selected course ID: <strong>{{ selectedCourseId }}</strong></p>
+  </div>
+
+  <!-- Hands-On 8: Error Banner -->
+  <div *ngIf="errorMessage" class="error-banner">
+    ⚠️ {{ errorMessage }} (Loaded local cached dataset)
+  </div>
+
+  <!-- Hands-On 3 Step 25: Structural *ngIf Loading state -->
+  <div *ngIf="isLoading" class="loading-container card">
+    <div class="spinner"></div>
+    <p>Loading courses...</p>
+  </div>
+
+  <!-- Hands-On 3 Step 26 & Step 28 & Hands-On 9 Step 96: Course Grid with trackBy & *ngIf else -->
+  <div *ngIf="!isLoading" class="course-grid-wrapper">
+    <div *ngIf="courses.length > 0; else noCourses" class="course-grid">
+      <app-course-card
+        *ngFor="let course of courses; let i = index; trackBy: trackByCourseId"
+        [course]="course"
+        (enrollRequested)="onEnroll($event)"
+        (click)="onCardClick(course.id)">
+      </app-course-card>
+    </div>
+
+    <!-- Step 28: ng-template fallback -->
+    <ng-template #noCourses>
+      <div class="empty-state card">
+        <p>No courses available matching your query.</p>
+      </div>
+    </ng-template>
+  </div>
+</div>

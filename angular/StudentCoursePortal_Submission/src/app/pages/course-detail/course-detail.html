@@ -1,0 +1,45 @@
+<div class="container">
+  <div class="back-nav">
+    <a routerLink="/courses" class="btn btn-secondary btn-sm">← Back to Course Catalog</a>
+  </div>
+
+  <div *ngIf="course; else notFound" class="detail-card card">
+    <div class="detail-header">
+      <span class="code-badge">{{ course.code }}</span>
+      <span class="badge" [ngClass]="'badge-' + course.gradeStatus">{{ course.gradeStatus }}</span>
+    </div>
+
+    <h2>{{ course.name }}</h2>
+    <div class="detail-meta">
+      <span>ID: #{{ course.id }}</span>
+      <span>Credits: {{ course.credits | creditLabel }}</span>
+    </div>
+
+    <div class="detail-body">
+      <h3>Course Overview</h3>
+      <p>
+        This course provides comprehensive training in {{ course.name }} ({{ course.code }}). Students will gain hands-on expertise through practical lab work, module assessments, and project submissions.
+      </p>
+    </div>
+
+    <!-- Hands-On 8 Step 87: Enrolled Students loaded via switchMap -->
+    <div class="students-section">
+      <h3>Enrolled Students (Loaded via RxJS switchMap)</h3>
+      <div *ngIf="(enrolledStudents$ | async) as students" class="student-list">
+        <ul *ngIf="students.length > 0; else noStudents">
+          <li *ngFor="let s of students">👤 {{ s.name }} (ID: {{ s.id }})</li>
+        </ul>
+        <ng-template #noStudents>
+          <p class="empty-text">No active student enrollments for this course code yet.</p>
+        </ng-template>
+      </div>
+    </div>
+  </div>
+
+  <ng-template #notFound>
+    <div class="card not-found-card">
+      <h3>Course Not Found</h3>
+      <p>The requested course ID could not be located in the system records.</p>
+    </div>
+  </ng-template>
+</div>

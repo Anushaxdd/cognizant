@@ -1,0 +1,12 @@
+angular.json: Main CLI configuration file containing project settings, build options, assets, styles, and environment budgets.
+tsconfig.json: Root TypeScript compiler configuration defining base options, target ECMAScript version, and path aliases.
+tsconfig.app.json: Application-specific TypeScript configuration extending tsconfig.json to control app build compilation scope.
+package.json: Node.json package descriptor declaring project dependencies, devDependencies, and npm scripts (build, start, test).
+src/main.ts: Application entry point file that bootstraps the root Angular component or AppModule onto the web browser.
+src/app/app.config.ts: Application configuration file for standalone Angular setup, defining providers like routes and zone handling.
+src/app/app.ts: Main root component defining the primary UI shell, state, and root lifecycle for the application.
+src/index.html: Primary HTML host page containing the container element (<app-root>) where Angular mounts the SPA components.
+
+Budgets Configuration Explanation (architect > build > configurations > production):
+- maximumWarning: Threshold size (e.g. 500kB) at which Angular CLI issues a build warning during compilation if initial bundle size exceeds it.
+- maximumError: Threshold size (e.g. 1MB) at which Angular CLI fails the build process with an error if initial bundle size exceeds it.

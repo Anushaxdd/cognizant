@@ -1,0 +1,77 @@
+.back-nav {
+  margin-bottom: 1.5rem;
+}
+
+.detail-card {
+  padding: 2.5rem;
+}
+
+.detail-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.code-badge {
+  color: #a5b4fc;
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+.detail-card h2 {
+  font-size: 2rem;
+  color: #ffffff;
+  margin-bottom: 1rem;
+}
+
+.detail-meta {
+  display: flex;
+  gap: 2rem;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--surface-border);
+  margin-bottom: 1.5rem;
+}
+
+.detail-body {
+  margin-bottom: 2rem;
+}
+
+.detail-body h3, .students-section h3 {
+  font-size: 1.2rem;
+  color: #ffffff;
+  margin-bottom: 0.75rem;
+}
+
+.detail-body p {
+  color: #cbd5e1;
+  line-height: 1.7;
+}
+
+.students-section {
+  background: rgba(15, 23, 42, 0.5);
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  border: 1px solid var(--surface-border);
+}
+
+.student-list ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.student-list li {
+  color: #cbd5e1;
+  padding: 0.5rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 0.25rem;
+}
+
+.empty-text {
+  color: var(--text-muted);
+  font-style: italic;
+}

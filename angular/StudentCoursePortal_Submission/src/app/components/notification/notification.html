@@ -1,0 +1,9 @@
+<div class="card notification-card">
+  <div class="header">
+    <h4>🔔 Component-Scoped Notification Service (Instance ID: #{{ instanceId }})</h4>
+    <button class="btn btn-secondary btn-sm" (click)="addNotification()">+ Push Notification</button>
+  </div>
+  <ul class="notification-list">
+    <li *ngFor="let note of notifications">{{ note }}</li>
+  </ul>
+</div>
